@@ -1,7 +1,17 @@
-import * as React from "react";
+import * as React from 'react';
+
+import { Layout, DashedLine, ExpandableRow, FilmsWrapper } from 'Common/components';
+
+const ROW_TITLE = 'Add movie';
 
 const MainPage = () => {
-  return <div>I'm main page</div>;
+  return (
+    <Layout>
+      <FilmsWrapper />
+      <DashedLine />
+      <ExpandableRow title={ROW_TITLE} />
+    </Layout>
+  );
 };
 
 export default MainPage;
