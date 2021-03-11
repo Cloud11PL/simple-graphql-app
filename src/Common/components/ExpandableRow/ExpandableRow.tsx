@@ -11,7 +11,7 @@ type Props = {
 };
 
 const ExpandableRow: React.FC<Props> = ({ title, renderExpanded = false, children }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(renderExpanded);
+  const [isExpanded, setIsExpanded] = useState(renderExpanded);
   const handleClick = () => setIsExpanded((status) => !status);
 
   return (

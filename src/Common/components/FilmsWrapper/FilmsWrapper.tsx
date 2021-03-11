@@ -11,7 +11,7 @@ const FilmsWrapper = () => {
   return (
     <>
       {!loading && !isNil(films) ? (
-        films?.map((film: Film) => (
+        films.map((film: Film) => (
           <FilmRow title={film.title} filmId={film.id} key={film.id} />
         ))
       ) : (
