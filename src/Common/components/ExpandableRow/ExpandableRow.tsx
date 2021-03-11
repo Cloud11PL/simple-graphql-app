@@ -7,10 +7,11 @@ import { Row } from './components';
 
 type Props = {
   title: string;
+  renderExpanded?: boolean;
 };
 
-const ExpandableRow: React.FC<Props> = ({ title, children }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+const ExpandableRow: React.FC<Props> = ({ title, renderExpanded = false, children }) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(renderExpanded);
   const handleClick = () => setIsExpanded((status) => !status);
 
   return (

@@ -13,8 +13,8 @@ type FilmsResponse = {
 const useFilms = (): QueryResult => {
   const { data, ...rest } = useQuery<FilmsResponse>(fetchMoviesQuery);
 
-  const films: Film[] | undefined = path(['allFilms', 'films'], data);
-
+  const films: Film[] | null = path(['allFilms', 'films'], data)  || null;
+  console.log('dupa');
   return { ...rest, data: films };
 };
 

@@ -5,3 +5,4 @@ export { default as IconButton } from './IconButton';
 export { default as RowTitle } from './RowTitle';
 export { default as FilmRow } from './FilmRow';
 export { default as FilmsWrapper } from './FilmsWrapper';
+export { default as AddMovie } from './AddMovie';

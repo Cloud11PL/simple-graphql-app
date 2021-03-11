@@ -1895,6 +1895,13 @@
   dependencies:
     ts-toolbelt "^6.15.1"
 
+"@types/react-autosuggest@^10.1.2":
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-autosuggest/-/react-autosuggest-10.1.2.tgz#23bb6df41dd000954a38564bb61ddfde31824e10"
+  integrity sha512-K23lmXhC3Bbd8y/jm5+wYrw/NAeN4U/wlHTgAEBIwLOyQKFCFYA3ONKte9P21L+RGIXRP8UlzHOSRtmIZw5Nqw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^17.0.0":
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.1.tgz#d92d77d020bfb083e07cc8e0ac9f933599a4d56a"

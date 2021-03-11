@@ -18,9 +18,9 @@ const Row = styled.div<Props>`
   justify-content: space-between;
   border-radius: ${ifProp('isExpanded', '4px 4px 0 0', '4px')};
   padding: 1em;
-  /* margin: ${ifProp('isExpanded', '0', '0.5em 0 0 0')}; */
   margin: 0.5em 0 0 0;
   z-index: 1;
+  box-sizing: border-box;
 `;
 
 export default Row;
