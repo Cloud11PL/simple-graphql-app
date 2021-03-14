@@ -14,7 +14,6 @@ const useFilms = (): QueryResult => {
   const { data, ...rest } = useQuery<FilmsResponse>(fetchMoviesQuery);
 
   const films: Film[] | null = path(['allFilms', 'films'], data)  || null;
-  console.log('dupa');
   return { ...rest, data: films };
 };
 

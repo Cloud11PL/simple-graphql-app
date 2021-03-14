@@ -1,6 +1,11 @@
 export interface Film {
   title: string;
   id: string;
+}
+
+export type PlanetPreview = {
+  name: string;
+  id: string;
 };
 
 export type Planet = {

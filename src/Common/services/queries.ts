@@ -28,3 +28,14 @@ export const fetchMoviePlanets = gql`
     }
   }
 `;
+
+export const fetchAllPlanets = gql`
+  {
+    allPlanets {
+      planets {
+        name
+        id
+      }
+    }
+  }
+`;

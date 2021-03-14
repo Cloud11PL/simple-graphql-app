@@ -7,9 +7,7 @@ const StyledLayout = styled.div`
     background-color: #E0E6EE;
     border-radius: 8px;
     position: absolute;
-    left: 50%;
-    top: 35%;
-    transform: translate(-50%, -50%);
+    left: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
