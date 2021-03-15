@@ -6,19 +6,24 @@ import {
   ExpandableRow,
   FilmsWrapper,
   AddMovie,
+  ManuallyAddedMovies,
+  PageContainer,
 } from 'Common/components';
 
 const ROW_TITLE = 'Add movie';
 
 const MainPage = () => {
   return (
-    <Layout>
-      <FilmsWrapper />
-      <DashedLine />
-      <ExpandableRow title={ROW_TITLE} renderExpanded>
-        <AddMovie />
-      </ExpandableRow>
-    </Layout>
+    <PageContainer>
+      <Layout>
+        <FilmsWrapper />
+        <ManuallyAddedMovies />
+        <DashedLine />
+        <ExpandableRow title={ROW_TITLE} renderExpanded>
+          <AddMovie />
+        </ExpandableRow>
+      </Layout>
+    </PageContainer>
   );
 };
 

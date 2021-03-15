@@ -1,1 +1,1 @@
-export { default as AddMovieForm } from './AddMoveForm';
+export { default as AddMovieFields } from './AddMoveFields';

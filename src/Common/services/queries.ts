@@ -39,3 +39,20 @@ export const fetchAllPlanets = gql`
     }
   }
 `;
+
+export const fetchAllPlanetsWithDetails = gql`
+  query {
+    allPlanets {
+      planets {
+        id
+        name
+        rotationPeriod
+        orbitalPeriod
+        diameter
+        climates
+        surfaceWater
+        population
+      }
+    }
+  }
+`;

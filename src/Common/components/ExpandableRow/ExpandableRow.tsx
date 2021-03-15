@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 
-import { ArrowOpen, ArrowClose } from 'Common/Icons';
+import { ArrowOpen, ArrowClose } from 'Assets/Icons';
 import { IconButton, RowTitle } from 'Common/components';
 import { Row } from './components';
 

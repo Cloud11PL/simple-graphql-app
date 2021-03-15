@@ -9,11 +9,13 @@ export type PlanetPreview = {
 };
 
 export type Planet = {
+  id?: string;
   name: string;
   diameter: number;
   orbitalPeriod: number;
-  population: number;
+  population?: number;
   rotationPeriod: number;
   surfaceWater: number;
   climates: string[];
+  __typename?: string;
 };

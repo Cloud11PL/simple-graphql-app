@@ -1,3 +1,4 @@
+import { createReducer } from '@reduxjs/toolkit';
 import { addMovie } from 'Core/actions';
 import { PlanetPreview } from 'Common/types';
 
@@ -14,21 +15,26 @@ const initialState: MovieState = {
   movies: [],
 };
 
-const movieReducer = (state = initialState, action: any) => {
-  switch (action.type) {
-    case addMovie: {
-      const { payload } = action;
+type AddMovieActionType<T> = {
+  type: string;
+  payload: T;
+};
+
+const movieReducer = createReducer(initialState, {
+  [addMovie]: (
+    state: MovieState,
+    {
+      payload,
+    }: AddMovieActionType<{ movieTitle: string; planets: PlanetPreview[] }>
+  ) =>
+    {
       const { movieTitle, planets } = payload;
       const newEntry: ManuallyAddedMovie = {
-          title: movieTitle,
-          planets,
-      }
-      state.movies = [...state.movies, newEntry];
-      break;
-    }
-    default:
-      return initialState;
-  }
-};
+        title: movieTitle,
+        planets,
+      };
+      state.movies.push(newEntry);
+    },
+});
 
 export { movieReducer };

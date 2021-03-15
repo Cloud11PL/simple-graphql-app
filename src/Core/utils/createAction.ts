@@ -1,4 +1,13 @@
-const createType = (group: string, action: string): string =>
-  `${group}/${action}`;
+export type ReduxAction<T> = {
+  type: string;
+  payload?: T;
+};
 
-export { createType };
+const createAction = <T>(type: string, payload?: T): ReduxAction<T> => {
+  return {
+    type,
+    payload,
+  };
+};
+
+export default createAction;

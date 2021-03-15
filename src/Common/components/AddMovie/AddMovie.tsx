@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Formik, FormikErrors } from 'formik';
+import { Formik, FormikErrors, FormikTouched } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
-import { addMovie } from 'Core/actions';
+import addMovieAction from 'Common/actions/addMovieAction';
 import { PlanetPreview } from 'Common/types';
-import { AddMovieForm } from './components';
-import { Form } from './components/AddMoveForm/components';
+import { AddMovieFields } from './components';
+import { Form } from './components/AddMoveFields/components';
 
 const addMovieSchema = Yup.object().shape({
   movieTitle: Yup.string()
@@ -31,32 +31,45 @@ const AddMovie = () => {
   const dispatch = useDispatch();
 
   const submitForm = (vals: FormValues) => {
-    dispatch({
-      type: addMovie,
-      payload: vals
-    });
+    dispatch(addMovieAction(vals));
   };
 
   return (
     <Formik
       initialValues={initValues}
-      onSubmit={(vals: FormValues) => submitForm(vals)}
+      onSubmit={(vals: FormValues, { resetForm }) => {
+        submitForm(vals);
+        resetForm();
+      }}
       validationSchema={addMovieSchema}
     >
-      {({ handleReset, handleSubmit, errors, setFieldValue, values }) => {
-        console.log(errors);
-        return (
-          <Form onReset={handleReset} onSubmit={handleSubmit}>
-            <AddMovieForm
-              setFieldValue={setFieldValue}
-              errors={
-                errors as FormikErrors<{ planets: string; movieTitle: string }>
-              }
-              addedPlanets={values.planets}
-            />
-          </Form>
-        );
-      }}
+      {({
+        handleReset,
+        handleSubmit,
+        errors,
+        setFieldValue,
+        values,
+        touched,
+      }) => (
+        <Form
+          onReset={handleReset}
+          onSubmit={handleSubmit}
+        >
+          <AddMovieFields
+            setFieldValue={setFieldValue}
+            errors={
+              errors as FormikErrors<{ planets: string; movieTitle: string }>
+            }
+            touched={
+              touched as FormikTouched<{
+                planets: boolean;
+                movieTitle: boolean;
+              }>
+            }
+            addedPlanets={values.planets}
+          />
+        </Form>
+      )}
     </Formik>
   );
 };

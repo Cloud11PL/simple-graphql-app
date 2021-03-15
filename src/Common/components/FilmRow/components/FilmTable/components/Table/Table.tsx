@@ -52,8 +52,6 @@ const Table: React.FC<Props> = ({ planets }) => {
     []
   );
 
-  console.log(planets);
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -72,34 +70,38 @@ const Table: React.FC<Props> = ({ planets }) => {
     column.isSorted ? (column.isSortedDesc ? '🔽' : '🔼') : '';
 
   return (
-    <StyledTable {...getTableProps()}>
-      <THead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              // react-table is lacking some types
-              // @ts-ignore
-              <Th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
-                <span>{renderArrow(column)}</span>
-              </Th>
-            ))}
-          </tr>
-        ))}
-      </THead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>;
-              })}
+    <div style={{ padding: '1em' }}>
+      <StyledTable {...getTableProps()}>
+        <THead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                // react-table is lacking some types
+                // @ts-ignore
+                <Th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>{renderArrow(column)}</span>
+                </Th>
+              ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </StyledTable>
+          ))}
+        </THead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row, i) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return (
+                    <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </StyledTable>
+    </div>
   );
 };
 

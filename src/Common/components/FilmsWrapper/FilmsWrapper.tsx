@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isNil } from 'ramda';
 
-import { FilmRow } from 'Common/components';
+import { FilmRow, LoadingBox } from 'Common/components';
 import type { Film } from 'Common/types';
 import { useFilms } from 'Common/hooks';
 
@@ -15,7 +15,7 @@ const FilmsWrapper = () => {
           <FilmRow title={film.title} filmId={film.id} key={film.id} />
         ))
       ) : (
-        <div>Loading... UwU</div>
+        <LoadingBox />
       )}
     </>
   );

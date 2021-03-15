@@ -8,6 +8,7 @@ const StyledTable = styled.table`
     width: 100%;
     color: #474747;
     border-collapse: collapse;
+    padding: 1em;
 `;
 
 export default StyledTable;
