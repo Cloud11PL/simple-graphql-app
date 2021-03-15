@@ -17,7 +17,7 @@ function App() {
         <ThemeProvider theme={{
           devices
         }}>
-          <Router>
+          <Router basename={process.env.PUBLIC_URL}>
             <Switch>
               {routes.map(({ component: Component, path, ...rest }) => (
                 <Route
