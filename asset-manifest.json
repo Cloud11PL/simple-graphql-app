@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-graphql-app/static/css/main.58b4e659.chunk.css",
+    "main.js": "/simple-graphql-app/static/js/main.7ce00531.chunk.js",
+    "main.js.map": "/simple-graphql-app/static/js/main.7ce00531.chunk.js.map",
+    "runtime-main.js": "/simple-graphql-app/static/js/runtime-main.5f6c0425.js",
+    "runtime-main.js.map": "/simple-graphql-app/static/js/runtime-main.5f6c0425.js.map",
+    "static/js/2.2733709c.chunk.js": "/simple-graphql-app/static/js/2.2733709c.chunk.js",
+    "static/js/2.2733709c.chunk.js.map": "/simple-graphql-app/static/js/2.2733709c.chunk.js.map",
+    "static/js/3.6c65e0c6.chunk.js": "/simple-graphql-app/static/js/3.6c65e0c6.chunk.js",
+    "static/js/3.6c65e0c6.chunk.js.map": "/simple-graphql-app/static/js/3.6c65e0c6.chunk.js.map",
+    "index.html": "/simple-graphql-app/index.html",
+    "static/css/main.58b4e659.chunk.css.map": "/simple-graphql-app/static/css/main.58b4e659.chunk.css.map",
+    "static/js/2.2733709c.chunk.js.LICENSE.txt": "/simple-graphql-app/static/js/2.2733709c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f6c0425.js",
+    "static/js/2.2733709c.chunk.js",
+    "static/css/main.58b4e659.chunk.css",
+    "static/js/main.7ce00531.chunk.js"
+  ]
+}
