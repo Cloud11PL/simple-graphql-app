@@ -11,7 +11,8 @@ import { Form } from './components/AddMoveFields/components';
 const addMovieSchema = Yup.object().shape({
   movieTitle: Yup.string()
     .required('Movie title is required!')
-    .matches(/^[A-Z]/, 'Movie title name must start with a capital letter'),
+    .matches(/^[A-Z]/, 'Movie title name must start with a capital letter')
+    .min(3, "The title is too short"),
   planets: Yup.array()
     .min(1, 'Add at least one planet to your movie')
     .required(),

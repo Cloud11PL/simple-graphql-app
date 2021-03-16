@@ -6,3 +6,4 @@ export { default as PlanetButtonWrapper } from './PlanetButtonWrapper';
 export { default as PlanetsWrapper } from './PlanetsWrapper';
 export { default as FieldError } from './FieldError';
 export { default as SubmitButton } from './SubmitButton';
+export { default as SearchIcon } from './StyledSearchIcon';

@@ -7,7 +7,7 @@ import { propEq, isEmpty, isNil, filter } from 'ramda';
 import { usePlanets } from 'Common/hooks';
 import { getSuggestedPlanets } from 'Common/helpers';
 import { Close } from 'Assets/Icons';
-import { IconButton, LoadingBox } from 'Common/components';
+import { IconButton } from 'Common/components';
 import {
   Input,
   Label,
@@ -16,6 +16,7 @@ import {
   PlanetsWrapper,
   FieldError,
   SubmitButton,
+  SearchIcon,
 } from './components';
 import { PlanetPreview } from 'Common/types';
 
@@ -28,11 +29,16 @@ type Props = {
   touched?: FormikTouched<{
     movieTitle: boolean;
     planets: boolean;
-  }>
+  }>;
   addedPlanets: PlanetPreview[];
 };
 
-const AddMovieForm = ({ setFieldValue, errors, addedPlanets, touched }: Props) => {
+const AddMovieForm = ({
+  setFieldValue,
+  errors,
+  addedPlanets,
+  touched,
+}: Props) => {
   const { data, loading } = usePlanets();
   const [suggestions, setSuggestions] = useState<PlanetPreview[]>([]);
   const [autosuggestValue, setAutosuggestValue] = useState<string>('');
@@ -82,8 +88,14 @@ const AddMovieForm = ({ setFieldValue, errors, addedPlanets, touched }: Props) =
   return (
     <>
       <div style={{ position: 'relative', marginTop: '1em' }}>
-        <Label hasError={!isNil(errors?.movieTitle) && touched?.planets}>Movie title</Label>
-        <Input {...field} placeholder="Please enter the title of the movie" />
+        <Label hasError={!isNil(errors?.movieTitle) && touched?.planets}>
+          Movie title
+        </Label>
+        <div style={{ position: 'relative' }}>
+          <Input {...field} placeholder="Please enter the title of the movie" />
+          <SearchIcon />
+        </div>
+
         {!isNil(errors?.movieTitle) && touched?.movieTitle && (
           <FieldError>{errors?.movieTitle}</FieldError>
         )}
@@ -92,7 +104,9 @@ const AddMovieForm = ({ setFieldValue, errors, addedPlanets, touched }: Props) =
       <PlanetsWrapper>{renderSelectedPlanets()}</PlanetsWrapper>
 
       <div style={{ position: 'relative', marginTop: '1em' }}>
-        <Label hasError={!isNil(errors?.planets) && touched?.planets}>Movie planets</Label>
+        <Label hasError={!isNil(errors?.planets) && touched?.planets}>
+          Movie planets
+        </Label>
         <AutosuggestWrapper>
           <FieldArray
             name="planets"
@@ -101,7 +115,7 @@ const AddMovieForm = ({ setFieldValue, errors, addedPlanets, touched }: Props) =
                 suggestions={suggestions}
                 getSuggestionValue={getSuggestionValue}
                 renderSuggestion={renderSuggestion}
-                onSuggestionsFetchRequested={() => console.log('XD!')}
+                onSuggestionsFetchRequested={() => undefined}
                 inputProps={{
                   placeholder: 'Type someting',
                   value: autosuggestValue,
@@ -123,7 +137,6 @@ const AddMovieForm = ({ setFieldValue, errors, addedPlanets, touched }: Props) =
           {!isNil(errors?.planets) && touched?.planets && (
             <FieldError>{errors?.planets}</FieldError>
           )}
-          
         </AutosuggestWrapper>
       </div>
 
